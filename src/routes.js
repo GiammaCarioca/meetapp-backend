@@ -2,10 +2,21 @@ const express = require('express')
 
 const routes = express.Router()
 
-const UserController = require('./app/controllers/UserController')
-const SessionController = require('./app/controllers/SessionController')
+const authMiddleware = require('./app/middlewares/auth')
 
-routes.post('/users', UserController.store)
-routes.post('/sessions', SessionController.store)
+const AuthController = require('./app/controllers/AuthController')
+
+// Auth
+routes.post('/signup', AuthController.signup)
+routes.post('/', AuthController.login)
+
+// Auth routes
+routes.use(authMiddleware)
+
+routes.get('/meetups', (req, res) => {
+  console.log(req.userId)
+
+  res.send('OK')
+})
 
 module.exports = routes
