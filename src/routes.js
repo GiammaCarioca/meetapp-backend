@@ -17,10 +17,4 @@ routes.use(authMiddleware)
 routes.get('/preferences', PreferencesController.show)
 routes.post('/preferences', PreferencesController.create)
 
-routes.get('/meetups', (req, res) => {
-  console.log(req.userId)
-
-  res.send('OK')
-})
-
 module.exports = routes

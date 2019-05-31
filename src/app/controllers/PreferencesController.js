@@ -3,11 +3,6 @@ const { Preferences } = require('../models')
 
 class PreferencesController {
   async show (req, res) {
-    // pegar o token do local storage e colocar no req.headers.authorization????
-
-    req.headers.authorization =
-			'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTU1OTI0MDQ2MiwiZXhwIjoxNTU5MzI2ODYyfQ.FYWJYGjzUtSnhh9jiKjLQUorg2mj8VozkzxIvDrSmD0'
-
     const loggedUser = req.userId
 
     const user = await User.findOne({ where: { id: loggedUser } })
@@ -18,7 +13,6 @@ class PreferencesController {
   }
 
   async create (req, res) {
-    console.log(req.userId)
     const loggedUser = req.userId
 
     const user = await User.findOne({ where: { id: loggedUser } })
