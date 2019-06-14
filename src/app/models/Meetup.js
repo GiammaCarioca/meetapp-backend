@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Meetup.associate = models => {
-    Meetup.belongsToMany(models.User, { through: 'Subscribers', foreignKey: 'user_id' })
+    Meetup.hasMany(models.User, { as: 'Subscribers', through: 'MeetupUser', foreignKey: 'user_id' })
   }
 
   return Meetup

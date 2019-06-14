@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   User.associate = models => {
-    User.belongsToMany(models.Meetup, { through: 'MySubs', foreignKey: 'meetup_id' })
+    User.hasMany(models.Meetup, { as: 'Subscriptions', through: 'MeetupUser', foreignKey: 'meetup_id' })
   }
 
   User.prototype.checkPassword = function (password) {

@@ -22,12 +22,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      meetup_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'meetups', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
-      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
