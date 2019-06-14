@@ -23,7 +23,7 @@ class PreferencesController {
 
     const preferences = await Preferences.create(req.body)
 
-    return res.json(preferences)
+    return res.json({ preferences })
   }
 }
 
