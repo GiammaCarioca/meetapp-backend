@@ -21,6 +21,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      members: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       location: {
         allowNull: false,
         type: Sequelize.STRING
